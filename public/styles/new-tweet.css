@@ -1,0 +1,37 @@
+.new-tweet{
+  border:1px solid black;
+  border-radius:5px;
+  margin:2em;
+  padding:0 1em 1em 1em;
+  position:relative;
+  background-color:#eee;
+}
+
+.new-tweet h2{
+  border-bottom: 1px solid black;
+}
+
+.new-tweet .counter {
+  position:absolute;
+  bottom:0px;
+  right:0px;
+  margin:0.5em;
+}
+
+.new-tweet .tweet-button{
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  margin-left:1em;
+  margin-bottom:0.5em;
+  background-color:rgb(0, 160, 135, 0.2);
+  font-weight:bold;
+  border:1px solid rgb(0, 160, 135);
+}
+
+.new-tweet .tweet-text{
+  padding:0.5em;
+  position:relative;
+  margin-bottom:1.5em;
+  width: 100%;
+}
