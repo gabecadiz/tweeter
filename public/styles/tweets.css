@@ -1,0 +1,59 @@
+
+/*styling for tweets*/
+.tweets{
+  border-radius:10px;
+  width: 85%;
+  height: 180px;
+  margin: auto;
+  align-items: center;
+  border: 1px solid grey;
+  position: relative;
+}
+
+.tweets .article-tweets-header{
+  position: absolute;
+  top: 0px;
+  height:3em;
+  width:100%;
+  background-color: rgb(0, 160, 135, 0.2)
+}
+
+.tweets .article-tweets-footer{
+  position: absolute;
+  bottom: 0px;
+  height: 2em;
+  width:100%;
+  border-top: 1px solid rgb(0, 160, 135, 0.2);;
+}
+
+.tweets .profilePicture{
+  height:50px;
+  width:50px;
+}
+
+.tweets .personalTweet{
+  position: absolute;
+  top:3.5em;
+  padding:1em;
+}
+
+.tweets .personName{
+  position:absolute;
+  top:0.5em;
+  font-weight:bold;
+  font-size:120%;
+}
+
+.tweets .userHandle{
+  position:absolute;
+  top:0px;
+  right:0px;
+  padding: 0.5em 0.5em 0em 0em;
+}
+
+.tweets .tweet-age {
+  position: absolute;
+  bottom:0px;
+  left:0px;
+  padding:0.5em;
+}
