@@ -6,6 +6,10 @@
 
 $( document ).ready(function() {
 
+    $('.tweet-text').keypress(function(event){
+    $("#error-message").css("display","none")
+  })
+
   function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -94,15 +98,17 @@ function timeDifference(comparedTime){
       let errorMessage = $("#error-message");
 
       if(tweetInputLength <= 0){
-        errorMessage.css("display","none")
+        errorMessage
+          .css("display","none")
           .slideToggle("slow")
-          .html("<b>Error</b>: Please input some text above in order to tweet!");
-        return;
+          .html("<b>Error</b>: Please input some text above in order to tweet!")
+          return;
       } else if (tweetInputLength > 140){
-          errorMessage.css("display","none")
+          errorMessage
+            .css("display","none")
             .slideToggle("slow")
             .html("<b>Oops</b>: Tweet is longer than the 140 character limit!");
-          return;
+            return;
         } else{
             $("#error-message").css("display","none");
             $.post( "/tweets", tweetSerial, function() {
@@ -123,14 +129,13 @@ function timeDifference(comparedTime){
   }
 loadTweets()
 
-$( "#compose-button" ).click(function() {
-  $("#error-message").css("display","none");
-  $(".new-tweet" ).slideToggle("slow");
-  $("#tweet-button").slideToggle("fast");
-  $(".counter").slideToggle("fast");
-  $(".tweet-text").focus();
-});
-
+  $( "#compose-button" ).click(function() {
+    $("#error-message").css("display","none");
+    $(".new-tweet" ).slideToggle("slow");
+    $("#tweet-button").slideToggle("fast");
+    $(".counter").slideToggle("fast");
+    $(".tweet-text").focus();
+  });
 
 
 
