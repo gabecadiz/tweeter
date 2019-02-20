@@ -39,4 +39,55 @@
   position:relative;
   margin-bottom:1.5em;
   width: 100%;
+  max-width: 100%;
 }
+
+.new-tweet #error-message{
+  display: none;
+  position: relative;
+  bottom: 1.5em;
+  margin: 5px;
+  padding: 5px 5px 5px 2px;
+  color: red;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: white;
+  border: 1px outset red;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

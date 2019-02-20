@@ -91,21 +91,26 @@ function timeDifference(comparedTime){
       let tweetSerial = $( this ).serialize();
       let $tweetBox = $(".tweet-text");
       let tweetInputLength = $tweetBox.val().length;
+      let errorMessage = $("#error-message");
 
       if(tweetInputLength <= 0){
-          alert("No text detected");
-          return;
+        errorMessage.css("display","none")
+          .slideToggle("slow")
+          .html("<b>Error</b>: Please input some text above in order to tweet!");
+        return;
       } else if (tweetInputLength > 140){
-          alert("Tweet is above 140 character limit");
+          errorMessage.css("display","none")
+            .slideToggle("slow")
+            .html("<b>Oops</b>: Tweet is longer than the 140 character limit!");
           return;
-      } else{
-
-        $.post( "/tweets", tweetSerial, function() {
-          $('.tweet-text').val('');
-          $('.counter').html(140);
-          $('#tweet-container').empty();
-          loadTweets()
-          },"text");
+        } else{
+            $("#error-message").css("display","none");
+            $.post( "/tweets", tweetSerial, function() {
+              $('.tweet-text').val('');
+              $('.counter').html(140);
+              $('#tweet-container').empty();
+              loadTweets()
+            },"text");
         }
     });
   })
@@ -119,6 +124,7 @@ function timeDifference(comparedTime){
 loadTweets()
 
 $( "#compose-button" ).click(function() {
+  $("#error-message").css("display","none");
   $(".new-tweet" ).slideToggle("slow");
   $("#tweet-button").slideToggle("fast");
   $(".counter").slideToggle("fast");
