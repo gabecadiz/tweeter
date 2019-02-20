@@ -53,9 +53,9 @@ function createTweetElement(data){
 
   <footer class = "article-tweets-footer">
     <span class ="tweet-age"> ${tweetAge}</span>
-    <img class="icon" src="/images/bird.png">
-    <img class="icon" src="/images/bird.png">
-    <img class="icon" src="/images/bird.png">
+    <img class="flag" src="/images/flag-icon.jpg">
+    <img class="retweet" src="/images/retweet.png">
+    <img class="heart" src="/images/green-heart.png">
   </footer>
  </article>`
 
