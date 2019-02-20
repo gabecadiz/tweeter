@@ -12,12 +12,39 @@ $( document ).ready(function() {
     return div.innerHTML;
   }
 
+  function timeAgo(difference){
+    let minutes = Math.floor(difference / 60000);
+    let hours = Math.round(minutes / 60);
+    let days = Math.round(hours / 24);
+
+    if (days){
+      return `${days} days ago`
+    }else if (hours){
+      return `${hours} hours ago`
+    }else {
+      return `${minutes} minutes ago`
+    }
+
+  };
+
+var d = new Date();
+var n = d.getTime();
+
+function timeDifference(comparedTime){
+  let timeDif = n - comparedTime;
+     return timeAgo(timeDif);
+  };
+
+
+
   function createTweetElement(data){
    let personName = data.user.name;
    let profilePicture = data.user.avatars.regular;
    let userHandle = data.user.handle;
    let personalTweet = data.content.text;
    let tweetAge = data.created_at;
+
+   let tweetAgeDifference = timeDifference(tweetAge)
 
    let tweet =
    `<article class="tweets">
@@ -30,7 +57,7 @@ $( document ).ready(function() {
     <div class ="personal-tweet"> ${escape(personalTweet)}</div>
 
     <footer class = "article-tweets-footer">
-      <span class ="tweet-age"> ${escape(tweetAge)}</span>
+      <span class ="tweet-age"> ${escape(tweetAgeDifference)}</span>
       <img class="flag" src="/images/flag-icon.jpg">
       <img class="retweet" src="/images/retweet.png">
       <img class="heart" src="/images/green-heart.png">
@@ -90,6 +117,15 @@ $( document ).ready(function() {
     })
   }
 loadTweets()
+
+$( "#compose-button" ).click(function() {
+  $( ".new-tweet" ).toggle();
+  $(".tweet-text").focus();
+});
+
+
+
+
 });
 
 
