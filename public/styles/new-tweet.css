@@ -24,8 +24,13 @@
   left:0px;
   margin-left:1em;
   margin-bottom:0.5em;
-  background-color:rgb(0, 160, 135, 0.2);
+  background-color:rgb(0, 160, 135, 0.1);
   font-weight:bold;
+  border:1px solid rgb(0, 160, 135, 0.8);
+}
+
+.new-tweet #tweet-button:hover{
+  background-color:rgb(0, 160, 135, 0.3);
   border:1px solid rgb(0, 160, 135);
 }
 

@@ -29,12 +29,21 @@
 }
 
 #nav-bar #compose-button{
+  opacity: 0.8;
   position: absolute;
   background-color: #c1fff8;
   color: black;
-  top: 0.7em;
+  top: 0.5em;
   right: 2em;
   border: 2px solid black;
-  padding: 1.1em 1.6em;
+  padding: 0.9em 1.4em;
+}
+
+#nav-bar #compose-button:hover{
+  opacity: 1;
+  position: absolute;
+  right: 1.8em;
+  border: 3px solid black;
+  padding: 1em 1.5em;
 }
 

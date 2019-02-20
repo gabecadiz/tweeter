@@ -119,7 +119,9 @@ function timeDifference(comparedTime){
 loadTweets()
 
 $( "#compose-button" ).click(function() {
-  $( ".new-tweet" ).toggle();
+  $(".new-tweet" ).slideToggle("slow");
+  $("#tweet-button").slideToggle("fast");
+  $(".counter").slideToggle("fast");
   $(".tweet-text").focus();
 });
 
