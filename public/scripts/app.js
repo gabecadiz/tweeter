@@ -41,20 +41,39 @@ $( document ).ready(function() {
     });
   }
 
+  //prevents textarea from recieving newlines/enter key
+   $(".tweet-text").keydown(function(event) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+    }
+  });
+
 //submit event handler on form
 
   $(function(){
     var $tweetForm = $("#tweetForm");
     $tweetForm.submit(function(event){
       event.preventDefault();
-      let tweetText = $( this ).serialize();
 
-        $.post( "/tweets", tweetText, function() {
+      let tweetSerial = $( this ).serialize();
+      let $tweetBox = $(".tweet-text");
+      let tweetInputLength = $tweetBox.val().length;
+
+      if(tweetInputLength <= 0){
+          alert("No text detected");
+          return;
+      } else if (tweetInputLength > 140){
+          alert("Tweet is above 140 character limit");
+          return;
+      } else{
+
+        $.post( "/tweets", tweetSerial, function() {
           $('.tweet-text').val('');
-          $('.counter').replaceWith(`<span class="counter">140</span>`)
+          $('.counter').html(140);
           $('#tweet-container').empty();
           loadTweets()
-      },"text");
+          },"text");
+        }
     });
   })
 
