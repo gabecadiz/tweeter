@@ -6,6 +6,12 @@
 
 $( document ).ready(function() {
 
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   function createTweetElement(data){
    let personName = data.user.name;
    let profilePicture = data.user.avatars.regular;
@@ -16,15 +22,15 @@ $( document ).ready(function() {
    let tweet =
    `<article class="tweets">
       <header class = "article-tweets-header">
-        <img class="profile-picture" src="${profilePicture}">
-        <span class ="person-name"> ${personName} </span>
-        <span class ="user-handle"> ${userHandle} </span>
+        <img class="profile-picture" src="${escape(profilePicture)}">
+        <span class ="person-name"> ${escape(personName)} </span>
+        <span class ="user-handle"> ${escape(userHandle)} </span>
       </header>
 
-    <div class ="personal-tweet"> ${personalTweet}</div>
+    <div class ="personal-tweet"> ${escape(personalTweet)}</div>
 
     <footer class = "article-tweets-footer">
-      <span class ="tweet-age"> ${tweetAge}</span>
+      <span class ="tweet-age"> ${escape(tweetAge)}</span>
       <img class="flag" src="/images/flag-icon.jpg">
       <img class="retweet" src="/images/retweet.png">
       <img class="heart" src="/images/green-heart.png">
