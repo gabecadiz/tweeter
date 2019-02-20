@@ -7,7 +7,9 @@
 $( document ).ready(function() {
 
     $('.tweet-text').keypress(function(event){
-    $("#error-message").css("display","none")
+    $("#error-message")
+    .slideUp("medium")
+    .html("")
   })
 
   function escape(str) {
@@ -16,6 +18,7 @@ $( document ).ready(function() {
     return div.innerHTML;
   }
 
+//function that determines age of tweet in days, if not hours, if not minutes
   function timeAgo(difference){
     let minutes = Math.floor(difference / 60000);
     let hours = Math.round(minutes / 60);
@@ -34,6 +37,7 @@ $( document ).ready(function() {
 var d = new Date();
 var n = d.getTime();
 
+//function that gets the difference between current date and tweet submission
 function timeDifference(comparedTime){
   let timeDif = n - comparedTime;
      return timeAgo(timeDif);
