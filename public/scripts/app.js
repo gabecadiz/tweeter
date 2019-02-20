@@ -4,64 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-//submit event handler on form
-
-// $(function(){
-//   var $tweetForm = $("#tweetForm");
-//   $tweetForm.submit(function(event){
-//     console.log("event ocurred");
-//     event.preventDefault()
-//     console.log( "test: ",$( this ).serialize() )
-//   })
-// })
-// <form id = "tweetForm" method="POST" action="/tweets">
-//   <textarea class="tweet-text" name="text" placeholder="What are you humming about?"></textarea>
-//   <input id="tweet-button" type="submit" value="Tweet">
-//   <span class="counter">140</span>
-// </form>
-
-
-// $(function() {
-//   var $inputButton = $('#tweet-button');
-//   $inputButton.on('click', function (){
-//     console.log("Button has been clicked, performing ajax call");
-//       event.preventDefault();
-//   });
-// });
-
-// Test / driver code (temporary). Eventually will get this from the server.
 $( document ).ready(function() {
 
-
-
-function createTweetElement(data){
- let personName = data.user.name;
- let profilePicture = data.user.avatars.regular;
- let userHandle = data.user.handle;
- let personalTweet = data.content.text;
- let tweetAge = data.created_at;
-
- let tweet =
- `<article class="tweets">
- <header class = "article-tweets-header">
-    <img class="profile-picture" src="${profilePicture}">
-    <span class ="person-name"> ${personName} </span>
-    <span class ="user-handle"> ${userHandle} </span>
-  </header>
-
-  <div class ="personal-tweet"> ${personalTweet}</div>
-
-  <footer class = "article-tweets-footer">
-    <span class ="tweet-age"> ${tweetAge}</span>
-    <img class="flag" src="/images/flag-icon.jpg">
-    <img class="retweet" src="/images/retweet.png">
-    <img class="heart" src="/images/green-heart.png">
-  </footer>
- </article>`
-
-return tweet
-
-};
 
 // Fake data taken from tweets.json
 const data = [
@@ -110,23 +54,56 @@ const data = [
     "created_at": 1461113796368
   }
 ];
+  function createTweetElement(data){
+   let personName = data.user.name;
+   let profilePicture = data.user.avatars.regular;
+   let userHandle = data.user.handle;
+   let personalTweet = data.content.text;
+   let tweetAge = data.created_at;
 
-function renderTweets(tweets) {
-  tweets.forEach(function(element){
-    console.log(element)
-    let $tweet = createTweetElement(element);
-    console.log("this is tweet", $tweet)
-    $('#tweet-container').append($tweet);
+   let tweet =
+   `<article class="tweets">
+      <header class = "article-tweets-header">
+        <img class="profile-picture" src="${profilePicture}">
+        <span class ="person-name"> ${personName} </span>
+        <span class ="user-handle"> ${userHandle} </span>
+      </header>
 
-  })
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
-}
+    <div class ="personal-tweet"> ${personalTweet}</div>
 
+    <footer class = "article-tweets-footer">
+      <span class ="tweet-age"> ${tweetAge}</span>
+      <img class="flag" src="/images/flag-icon.jpg">
+      <img class="retweet" src="/images/retweet.png">
+      <img class="heart" src="/images/green-heart.png">
+    </footer>
+   </article>`;
 
+  return tweet;
+  }
 
+  function renderTweets(tweets) {
+    tweets.forEach(function(element){
+      let $tweet = createTweetElement(element);
+      $('#tweet-container').append($tweet);
+    });
+  }
+
+//calls renderTweets to display all tweets in database
 renderTweets(data);
 
+
+//submit event handler on form
+
+  $(function(){
+    var $tweetForm = $("#tweetForm");
+    $tweetForm.submit(function(event){
+      event.preventDefault();
+      let tweetText = $( this ).serialize();
+      $.post( "/tweets", tweetText, function() {
+      },"text");
+    });
+  })
 
 });
 
