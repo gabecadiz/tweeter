@@ -36,27 +36,12 @@ function timeDifference(comparedTime){
     let hours = Math.round(minutes / 60);
     let days = Math.round(hours / 24);
 
-    if (days){
-      if(days === 1){
-        return `1 day ago`
-      } else {
+    if (days >= 1){
           return `${days} days ago`
-      }
-    } else if (hours){
-        if (hours === 1){
-          return `1 hour ago`
-        } else {
-          return `${hours} hours ago`
-        }
+    } else if (hours >= 1){
+        return `${hours} hours ago`
       } else {
-        if (minutes <= 0){
-          return `0 minutes ago`
-        }
-        else if(minutes === 1){
-          return `1 minute ago`
-        } else {
-            return `${minutes} minutes ago`
-          }
+          return `${minutes} minutes ago`
         }
 
   };
@@ -126,12 +111,14 @@ function timeDifference(comparedTime){
           .css("display","none")
           .slideToggle("medium")
           .html("<b>Error</b>: Please input some text above in order to tweet!")
+            $(".tweet-text").focus();
           return;
       } else if (tweetInputLength > 140){
           errorMessage
             .css("display","none")
             .slideToggle("medium")
             .html("<b>Oops</b>: Tweet is longer than the 140 character limit!");
+              $(".tweet-text").focus();
             return;
         } else{
             $("#error-message").css("display","none");
@@ -157,8 +144,8 @@ loadTweets()
     $("#error-message").css("display","none");
     $(".new-tweet" ).slideToggle("slow");
     $(".tweet-text").focus();
-    $("#tweet-button").slideToggle("fast");
-    $(".counter").slideToggle("fast");
+    $("#tweet-button").toggle();
+    $(".counter").toggle();
   });
 
 
