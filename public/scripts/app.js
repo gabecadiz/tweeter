@@ -31,7 +31,7 @@ function timeDifference(comparedTime){
 
 
 //function that determines age of tweet in days, if not hours, if not minutes
-  function timeAgo(difference){
+function timeAgo(difference){
     let minutes = Math.floor(difference / 60000);
     let hours = Math.round(minutes / 60);
     let days = Math.round(hours / 24);
@@ -100,7 +100,6 @@ function timeDifference(comparedTime){
 
 //submit event handler on form
 
-  $(function(){
     var $tweetForm = $("#tweetForm");
     $tweetForm.submit(function(event){
       event.preventDefault();
@@ -108,17 +107,17 @@ function timeDifference(comparedTime){
       let tweetSerial = $( this ).serialize();
       let $tweetBox = $(".tweet-text");
       let tweetInputLength = $tweetBox.val().length;
-      let errorMessage = $("#error-message");
+      let $errorMessage = $("#error-message");
 
       if(tweetInputLength <= 0){
-        errorMessage
+        $errorMessage
           .css("display","none")
           .slideToggle("medium")
           .html("<b>Error</b>: Please input some text above in order to tweet!")
             $(".tweet-text").focus();
           return;
       } else if (tweetInputLength > 140){
-          errorMessage
+          $errorMessage
             .css("display","none")
             .slideToggle("medium")
             .html("<b>Oops</b>: Tweet is longer than the 140 character limit!");
@@ -126,23 +125,28 @@ function timeDifference(comparedTime){
             return;
         } else{
             $("#error-message").css("display","none");
-            $.post( "/tweets", tweetSerial, function() {
-              $('.tweet-text').val('');
-              $('.counter').html(140);
-              $('#tweet-container').empty();
-              loadTweets()
+            $.post( "/tweets", tweetSerial, function(data, status, response) {
+              if (response.status === 201)
+              {
+                $('.tweet-text').val('');
+                $('.counter').html(140);
+                $('#tweet-container').empty();
+                loadTweets();
+              }
             },"text");
         }
     });
-  })
+
 
   //Fetching tweets with Ajax
   function loadTweets(){
-    $.get("/tweets", function(element){
-     renderTweets(element)
+    $.get("/tweets", function(tweets){
+     renderTweets(tweets)
     })
   }
-loadTweets()
+
+
+  loadTweets()
 
   $( "#compose-button" ).click(function() {
     $("#error-message").css("display","none");
