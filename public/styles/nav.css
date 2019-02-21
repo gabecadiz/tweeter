@@ -36,7 +36,8 @@
   top: 0.5em;
   right: 2em;
   border: 2px solid black;
-  padding: 0.9em 1.4em;
+  padding: 0.8em 1.3em;
+  transition: 0.8s;
 }
 
 #nav-bar #compose-button:hover{
@@ -44,6 +45,6 @@
   position: absolute;
   right: 1.8em;
   border: 3px solid black;
-  padding: 1em 1.5em;
+  padding: 1.1em 1.6em;
 }
 

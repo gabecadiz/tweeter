@@ -1,14 +1,16 @@
 .new-tweet{
   border:1px solid black;
   border-radius:5px;
-  margin:2em;
+  margin:2em 2em 1em 2em;
   padding:0 1em 1em 1em;
   position:relative;
   background-color:#eee;
+  text-align: center;
 }
 
 .new-tweet h2{
   border-bottom: 1px solid black;
+  margin-top: 10px;
 }
 
 .new-tweet .counter {
@@ -32,14 +34,21 @@
 .new-tweet #tweet-button:hover{
   background-color:rgb(0, 160, 135, 0.3);
   border:1px solid rgb(0, 160, 135);
+  width: 6em;
+  margin-left: 0.8em;
 }
 
 .new-tweet .tweet-text{
   padding:0.5em;
   position:relative;
+  margin: auto;
   margin-bottom:1.5em;
-  width: 100%;
+  width: 90%;
   max-width: 100%;
+  transition: 1s;
+}
+.new-tweet .tweet-text:focus{
+  width: 100%;
 }
 
 .new-tweet #error-message{

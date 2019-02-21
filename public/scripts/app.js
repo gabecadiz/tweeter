@@ -66,9 +66,9 @@ function timeDifference(comparedTime){
 
     <footer class = "article-tweets-footer">
       <span class ="tweet-age"> ${escape(tweetAgeDifference)}</span>
-      <img class="flag" src="/images/flag-icon.jpg">
-      <img class="retweet" src="/images/retweet.png">
       <img class="heart" src="/images/green-heart.png">
+      <img class="retweet" src="/images/retweet.png">
+      <img class="flag" src="/images/flag-icon.jpg">
     </footer>
    </article>`;
 
@@ -86,6 +86,10 @@ function timeDifference(comparedTime){
    $(".tweet-text").keydown(function(event) {
     if (event.keyCode == 13) {
         event.preventDefault();
+        $("#error-message")
+          .css("display","none")
+          .slideToggle("slow")
+          .html("<b>Oops</b>: Click the tweet button to submit your tweet!")
     }
   });
 
@@ -104,13 +108,13 @@ function timeDifference(comparedTime){
       if(tweetInputLength <= 0){
         errorMessage
           .css("display","none")
-          .slideToggle("slow")
+          .slideToggle("medium")
           .html("<b>Error</b>: Please input some text above in order to tweet!")
           return;
       } else if (tweetInputLength > 140){
           errorMessage
             .css("display","none")
-            .slideToggle("slow")
+            .slideToggle("medium")
             .html("<b>Oops</b>: Tweet is longer than the 140 character limit!");
             return;
         } else{
