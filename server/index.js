@@ -22,7 +22,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
 
-  // Because it exports a function that expects the `db` as a parameter, we can
+// Because it exports a function that expects the `db` as a parameter, we can
 // require it and pass the `db` parameter immediately:
 const DataHelpers = require("./lib/data-helpers.js")(db);
 

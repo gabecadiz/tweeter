@@ -41,7 +41,11 @@ function timeDifference(comparedTime){
     } else if (hours >= 1){
         return `${hours} hours ago`
       } else {
-          return `${minutes} minutes ago`
+          if(minutes <= 0){
+              return `0 minutes ago`
+          } else {
+              return `${minutes} minutes ago`
+          }
         }
 
   };
