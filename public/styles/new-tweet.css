@@ -1,10 +1,10 @@
 .new-tweet{
-  border:1px solid black;
-  border-radius:5px;
-  margin:2em 2em 1em 2em;
-  padding:0 1em 1em 1em;
-  position:relative;
-  background-color:#eee;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 2em 2em 1em 2em;
+  padding: 0 1em 1em 1em;
+  position: relative;
+  background-color: #eee;
   text-align: center;
 }
 
@@ -14,35 +14,37 @@
 }
 
 .new-tweet .counter {
-  position:absolute;
-  bottom:0px;
-  right:0px;
-  margin:0.5em;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 0.5em;
 }
 
 .new-tweet #tweet-button{
   position:absolute;
-  bottom:0px;
-  left:0px;
-  margin-left:1em;
-  margin-bottom:0.5em;
-  background-color:rgb(0, 160, 135, 0.1);
-  font-weight:bold;
+  bottom: 0px;
+  left: 0px;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  background-color: rgb(0, 160, 135, 0.1);
+  font-weight: bold;
   border:1px solid rgb(0, 160, 135, 0.8);
+  transition: 0.5s;
 }
 
 .new-tweet #tweet-button:hover{
-  background-color:rgb(0, 160, 135, 0.3);
-  border:1px solid rgb(0, 160, 135);
-  width: 6em;
-  margin-left: 0.8em;
+  background-color: rgb(0, 160, 135, 0.3);
+  border: 1px solid rgb(0, 160, 135);
+  width: 4em;
+  height: 1.7em;
+  margin-left: 0.9em;
 }
 
 .new-tweet .tweet-text{
-  padding:0.5em;
-  position:relative;
+  padding: 0.5em;
+  position: relative;
   margin: auto;
-  margin-bottom:1.5em;
+  margin-bottom: 1.5em;
   width: 90%;
   max-width: 100%;
   transition: 1s;
