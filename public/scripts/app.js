@@ -18,6 +18,18 @@ $( document ).ready(function() {
     return div.innerHTML;
   }
 
+//variables that get the current time in milliseconds
+var d = new Date();
+var todaysTime = d.getTime();
+
+
+//function that gets the difference between current date and tweet submission
+function timeDifference(comparedTime){
+  let timeDif = todaysTime - comparedTime;
+     return timeAgo(timeDif);
+  };
+
+
 //function that determines age of tweet in days, if not hours, if not minutes
   function timeAgo(difference){
     let minutes = Math.floor(difference / 60000);
@@ -25,25 +37,29 @@ $( document ).ready(function() {
     let days = Math.round(hours / 24);
 
     if (days){
-      return `${days} days ago`
-    }else if (hours){
-      return `${hours} hours ago`
-    }else {
-      return `${minutes} minutes ago`
-    }
+      if(days === 1){
+        return `1 day ago`
+      } else {
+          return `${days} days ago`
+      }
+    } else if (hours){
+        if (hours === 1){
+          return `1 hour ago`
+        } else {
+          return `${hours} hours ago`
+        }
+      } else {
+        if (minutes <= 0){
+          return `0 minutes ago`
+        }
+        else if(minutes === 1){
+          return `1 minute ago`
+        } else {
+            return `${minutes} minutes ago`
+          }
+        }
 
   };
-
-var d = new Date();
-var n = d.getTime();
-
-//function that gets the difference between current date and tweet submission
-function timeDifference(comparedTime){
-  let timeDif = n - comparedTime;
-     return timeAgo(timeDif);
-  };
-
-
 
   function createTweetElement(data){
    let personName = data.user.name;
@@ -140,9 +156,9 @@ loadTweets()
   $( "#compose-button" ).click(function() {
     $("#error-message").css("display","none");
     $(".new-tweet" ).slideToggle("slow");
+    $(".tweet-text").focus();
     $("#tweet-button").slideToggle("fast");
     $(".counter").slideToggle("fast");
-    $(".tweet-text").focus();
   });
 
 
