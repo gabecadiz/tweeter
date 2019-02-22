@@ -33,14 +33,27 @@ function timeAgo(difference){
     let days = Math.round(hours / 24);
 
     if (days >= 1){
-          return `${days} days ago`
+
+      if (days === 1){
+        return `1 day ago`;
+      } else {
+          return `${days} days ago`;
+      }
+
     } else if (hours >= 1){
-        return `${hours} hours ago`
+        if(hours === 1){
+          return `1 hour ago`;
+        } else {
+            return `${hours} hours ago`;
+        }
+
       } else {
           if(minutes <= 0){
-              return `0 minutes ago`
-          } else {
-              return `${minutes} minutes ago`
+            return `0 minutes ago`;
+          } else if (minutes === 1){
+              return `1 minute ago`;
+            } else {
+                return `${minutes} minutes ago`;
           }
         }
 
