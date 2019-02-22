@@ -6,6 +6,14 @@ Presentation is done by HTML, CSS, JavaScript and jQuery. The server is handled 
 
 This project was a lot of fun and I hope you have a good experience using it!
 
+#### Example of Tweeters compose box
+!["Screenshot of tweet compose box"](https://github.com/gabecadiz/tweeter/blob/master/docs/tweet-box.png)
+The tweet box appears once a user clicks on the compose button on the top right of the header. Type your tweet in the text area, click tweet and boom! Your tweet is now displayed forever! Tweets are limited to 140 characters and empty tweets are not allowed.
+
+#### Example of Tweeters tweet feed
+!["Screenshot of example tweets"](https://github.com/gabecadiz/tweeter/blob/master/docs/example-tweets.png)
+Hovering over an individual tweet highlights the tweet! Flag, retweet and heart icons highlight when hovered. (functionality to be added soon!)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
