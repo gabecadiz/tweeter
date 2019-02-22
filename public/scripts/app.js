@@ -6,11 +6,7 @@
 
 $( document ).ready(function() {
 
-    $('.tweet-text').keypress(function(event){
-    $("#error-message")
-    .slideUp("medium")
-    .html("")
-  })
+
 
   function escape(str) {
     var div = document.createElement('div');
@@ -98,6 +94,13 @@ function timeAgo(difference){
     }
   });
 
+       //resets error message
+    $('.tweet-text').keypress(function(event){
+      $("#error-message")
+      .slideUp("medium")
+      .html("")
+     })
+
 //submit event handler on form
 
     var $tweetForm = $("#tweetForm");
@@ -148,12 +151,16 @@ function timeAgo(difference){
 
   loadTweets()
 
+
+//compose button on nav
   $( "#compose-button" ).click(function() {
     $("#error-message").css("display","none");
     $(".new-tweet" ).slideToggle("slow");
     $(".tweet-text").focus();
+    $(".tweet-text").val("");
     $("#tweet-button").toggle();
     $(".counter").toggle();
+    $('.counter').html(140);
   });
 
 
