@@ -18,7 +18,7 @@
   margin-top: 1em;
   margin-bottom: 1em;
   overflow: hidden;
-  min-width: 350px;
+  min-width: 300px;
 }
 
 .tweets .article-tweets-header{
@@ -85,25 +85,12 @@
   font-size: 1.2;
 }
 
-
-
-
 .tweets .user-handle{
-  color: rgb(35, 35, 35, 0.6);
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  padding: 0.5em 0.5em 0em 0em;
-}
-
-@media (max-width: 360px){
-  .tweets .user-handle{
   color: rgb(35, 35, 35, 0.6);
   position: absolute;
   top: 15px;
   right: 0px;
   padding: 0.5em 0.5em 0em 0em;
-}
 }
 
 .tweets .tweet-age {
