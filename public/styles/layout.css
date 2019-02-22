@@ -16,22 +16,25 @@ html {
  * Global layout stuff
  */
 
+
 body {
   margin: 0;
   color: #244751;
   background-color: #eee;
 }
 
+
 #container {
   background-color:white;
-  height:100vh;
-  width:450px;
+  height: 90vh;
+  width: 40vw;
+  min-width: 400px;
   align-items: center;
-  border:1px solid black;
+  border: 1px solid black;
   margin: auto;
-  position:relative;
-  top:140px;
-  overflow:auto;
+  position: relative;
+  top: 140px;
+  overflow: auto;
   padding-top: 2em;
 }
 
