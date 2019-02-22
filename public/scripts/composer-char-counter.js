@@ -1,14 +1,4 @@
 $(document).ready(function() {
-  // $('.tweet-text').keypress(function(event){
-  //   console.log(event)
-  // });
-  //   $('.tweet-text').change(function(){
-  //   console.log($(this))
-  // });
-
-  //   $('.tweet-text').keydown(function(event){
-  //   console.log(event)
-  // });
 
   $('.tweet-text').on('input',function(){
     let tweetLength = this.value.length;

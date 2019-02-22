@@ -6,25 +6,20 @@
 
 $( document ).ready(function() {
 
-
-
   function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
-
 //variables that get the current time in milliseconds
 var d = new Date();
 var todaysTime = d.getTime();
-
 
 //function that gets the difference between current date and tweet submission
 function timeDifference(comparedTime){
   let timeDif = todaysTime - comparedTime;
      return timeAgo(timeDif);
   };
-
 
 //function that determines age of tweet in days, if not hours, if not minutes
 function timeAgo(difference){
@@ -38,14 +33,14 @@ function timeAgo(difference){
         return `1 day ago`;
       } else {
           return `${days} days ago`;
-      }
+      };
 
     } else if (hours >= 1){
         if(hours === 1){
           return `1 hour ago`;
         } else {
             return `${hours} hours ago`;
-        }
+        };
 
       } else {
           if(minutes <= 0){
@@ -54,9 +49,8 @@ function timeAgo(difference){
               return `1 minute ago`;
             } else {
                 return `${minutes} minutes ago`;
-          }
-        }
-
+          };
+        };
   };
 
   function createTweetElement(data){
@@ -85,7 +79,6 @@ function timeAgo(difference){
       <img class="flag" src="/images/flag-icon.jpg">
     </footer>
    </article>`;
-
   return tweet;
   }
 
@@ -148,7 +141,7 @@ function timeAgo(difference){
                 $('.counter').html(140);
                 $('#tweet-container').empty();
                 loadTweets();
-              }
+              };
             },"text");
         }
     });
@@ -157,12 +150,12 @@ function timeAgo(difference){
   //Fetching tweets with Ajax
   function loadTweets(){
     $.get("/tweets", function(tweets){
-     renderTweets(tweets)
-    })
-  }
+     renderTweets(tweets);
+    });
+  };
 
 
-  loadTweets()
+  loadTweets();
 
 
 //compose button on nav
