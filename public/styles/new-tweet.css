@@ -63,10 +63,10 @@
   bottom: 1.5em;
   margin: 5px;
   padding: 5px 5px 5px 2px;
-  color: red;
+  color: white;
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: white;
-  border: 1px outset red;
+  background-color: #c32d3b;
+  border: 1px outset #c32d3b;
   border-radius: 3px;
   overflow: hidden;
 }
