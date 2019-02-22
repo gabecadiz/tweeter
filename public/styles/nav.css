@@ -1,5 +1,5 @@
 #nav-bar{
-  height: 75px;
+  height: 4.3rem;
   position: fixed;
   left: 0;
   right: 0;
@@ -10,7 +10,7 @@
   padding-top: 0;
   padding-bottom: 0;
   z-index: 1;
-  min-width: 300px;
+  min-width: 20rem;
 }
 
 #nav-bar .logo{

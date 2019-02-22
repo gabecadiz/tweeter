@@ -3,8 +3,8 @@
 #tweet-container{
     font-family: 'Raleway', sans-serif;
     width: 100%;
-    min-width: 280px;
-    max-width: 480px;
+    min-width: 19rem;
+    max-width: 30rem;
 }
 
 .tweets{
